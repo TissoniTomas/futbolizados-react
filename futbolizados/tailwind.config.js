@@ -9,6 +9,10 @@ export default {
     extend: {
       fontFamily:{
         TungstenBold: ["Tungsten-bold"],
+        YakartaBold: ["YakartaPlus-sans-Bold"],
+        YakartaRegular: ["YakartaPlus-sans-Regular"],
+        MontserratRegular: ["Montserrat-Regular"],
+        MontserratBold: ["Montserrat-Bold"],
         
 
       }

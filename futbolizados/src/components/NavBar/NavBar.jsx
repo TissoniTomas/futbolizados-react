@@ -20,14 +20,20 @@ const NavBar = () => {
 
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
+  }
+
+  useEffect(()=>{
     console.log(theme);
-  };
+  },[theme])
 
   const toggleMenu = () => {
     setMenu(!menu);
-
     console.log(menu);
   };
+
+  useEffect(()=>{
+    console.log(menu);
+  },[menu])
 
   const filterInput = (e) => {
     let dataInput = e.target.value;
@@ -40,7 +46,7 @@ const NavBar = () => {
   }, [input]);
 
   const filteredInput = (input) => {
-    let arrayFilter = data.filter((item) => item.titleRemera.includes(input));
+    let arrayFilter = data.filter((item) => item.titleRemera.toLowerCase().includes(input.toLowerCase()));
     console.log(arrayFilter);
     setDataFiltrada(arrayFilter)
   };

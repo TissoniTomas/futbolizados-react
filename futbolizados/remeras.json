@@ -4,7 +4,7 @@
         {
             "id" : 1,
             "titleRemera" : "Boca Juniors Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/boca.png",
+            "imageRemera" : "https://bocashop.vteximg.com.br/arquivos/ids/168355-1000-1000/HE6324_1.jpg?v=637922173153730000",
             "descriptionRemera" : "Abraza la mística azul y oro con la remera titular de los Xeneises 22/23. Más que una camiseta, es tu bandera en la Bombonera. Sentí la pasión, dejá la vida en cada pelota y celebrá el coraje de ser parte de la Mitad mas Uno.",
             "talleRemera":{
                 "S": 3,
@@ -19,7 +19,7 @@
         {
             "id" : 2,
             "titleRemera" : "River Plate Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/River Tit.jpg",
+            "imageRemera" : "https://tiendariver.vteximg.com.br/arquivos/ids/170402-500-500/HT3679_1.jpg?v=638285198108200000",
             "descriptionRemera" : "Conquistá la cancha con la remera titular de River Plate 22/23. Inspirada en la victoria y el orgullo, es tu armadura para dejar todo por la banda. Vestí los colores que representan la grandeza y el espíritu indomable de los hinchas Millonarios.", 
             "talleRemera":{
                 "S": 4,
@@ -35,7 +35,7 @@
         {
             "id" : 3,
             "titleRemera" : "C.A Independiente Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/Independiente.png",
+            "imageRemera" : "https://acai.vtexassets.com/arquivos/ids/156110-500-auto?v=1774280302&width=500&height=auto&aspect=true",
             "descriptionRemera" : "Abrazá el rojo pasión con la remera titular del Rey de Copas. Un homenaje a la historia de triunfos, es tu símbolo para dejar la vida en cada partido. Unite a la familia del Rojo y llevá a los diablos a donde sea que vayas.",
             "talleRemera":{
                 "S": 4,
@@ -51,7 +51,7 @@
         {
             "id" : 4,
             "titleRemera" : "Velez Sarsfield Edicion Italiana 22/23",
-            "imageRemera" : "./src/assets/Remeras/Velez-italiana.jpg",
+            "imageRemera" : "https://acdn.mitiendanube.com/stores/268/104/products/tri93-sin-edicion-limitada-5c0c5ebde83353709a16988577245510-480-0.webp",
             "descriptionRemera" : "Deslumbrate con la elegancia de El Fortín con la tercera remera edicion Italiana. Un diseño que combina estilo y elegancia, esta camiseta honra los inicios del club de Liniers. No te la pierdas, es edicion limitada.",
             "talleRemera":{
                 "S": 4,
@@ -66,8 +66,8 @@
         },
         {
             "id" : 5,
-            "titleRemera" : "C.A Newell's Old Boys Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/Newells.jpg",
+            "titleRemera" : "Rosario Central Titular 22/23",
+            "imageRemera" : "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4d248e1e/products/UBU34RC01734-7268/UBU34RC01734-7268-1.JPG",
             "descriptionRemera" : "Rendí homenaje a la nobleza leprosa con la remera titular de La Lepra. Con detalles emblemáticos y un diseño atemporal, esta camiseta te conecta con las raíces del club. Unite a la tradición y llevá el legado de Newell's con orgullo y pasión, dejando la vida en cada rincón del campo.",
             "talleRemera":{
                 "S": 3,
@@ -83,7 +83,7 @@
         {
             "id" : 6,
             "titleRemera" : "Racing Club Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/Racing.jpg",
+            "imageRemera" : "https://locademia.racingclub.com.ar/Image/0/600_600-0_0-11.jpg",
             "descriptionRemera" : "Acelerá con la remera titular de La Academia. Diseñada para reflejar la audacia y la garra del equipo, es tu escudo para dejar la vida en cada partido. Llevá el aguante de Racing con estilo y devoción.",
             "talleRemera":{
                 "S": 2,
@@ -99,7 +99,7 @@
         {
             "id" : 7,
             "titleRemera" : "San Lorenzo Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/San-lorenzo.jpg",
+            "imageRemera" : "https://nikearprod.vtexassets.com/arquivos/ids/788751/CK9872-490-frente-v3.jpg?v=638337674534570000",
             "descriptionRemera" : "Descubre la esencia del fervor cuervo con nuestra remera exclusiva de San Lorenzo, el auténtico Ciclón. Diseñada para los apasionados del fútbol y del emblemático barrio de Boedo, esta prenda captura la historia y la pasión de los seguidores más leales. Lleva contigo el orgullo azulgrana y siéntete parte de la vibrante tradición de San Lorenzo.",
             "talleRemera":{
                 "S": 2,
@@ -115,7 +115,7 @@
         {
             "id" : 8,
             "titleRemera" : "River Plate Suplente 22/23",
-            "imageRemera" : "./src/assets/Remeras/River-suplente.jpg",
+            "imageRemera" : "https://tiendariver.vteximg.com.br/arquivos/ids/170591-500-500/HT3688_FR.png?v=638324652257270000",
             "descriptionRemera" : "Sumérgete en la grandeza del fútbol con nuestra remera exclusiva del Club Atlético River Plate, el equipo Millonario. Diseñada como el kit suplente, esta prenda rinde homenaje al espíritu indomable y la gloria de River Plate. Lleva contigo el orgullo de Nuñez y celebra la grandeza del fútbol argentino con estilo.",
             "talleRemera":{
                 "S": 4,
@@ -131,7 +131,7 @@
         {
             "id" : 9,
             "titleRemera" : "Estudiantes de la Plata Titular 22/23",
-            "imageRemera" : "./src/assets/Remeras/Estudiantes.png",
+            "imageRemera" : "https://http2.mlstatic.com/D_NQ_NP_901390-MLA54830590381_042023-O.webp",
             "descriptionRemera" : "Explora la pasión del fútbol con nuestra remera única de Estudiantes de La Plata, los pincharratas. Esta prenda celebra la historia y el compromiso del equipo. Lleva contigo el orgullo de La Plata y muestra tu lealtad con estilo. ¡Viste la esencia pincharrata y abraza la grandeza futbolística! ",
             "talleRemera":{
                 "S": 3,
