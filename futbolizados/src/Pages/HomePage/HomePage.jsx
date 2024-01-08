@@ -20,11 +20,11 @@ const HomePage = () => {
     <>
   
     <Carrousel/>
-    <main className='flex flex-col items-center my-20'>
+    <main className='flex flex-col items-center my-20' >
 
     <h1 className='font-sans text-slate-900 text-3xl font-extrabold antialiased'>Productos Destacados
     </h1>
-    <ItemListContainer section = "destacados" data={data}/>
+    <ItemListContainer  section = "destacados" data={data}/>
 
 
     </main>
