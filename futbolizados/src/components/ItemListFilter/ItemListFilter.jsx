@@ -1,10 +1,18 @@
-import React from 'react'
-import ItemCard from '../ItemCard/ItemCard'
+import React, { useEffect } from "react";
+import ItemCard from "../ItemCard/ItemCard";
 
-const ItemListFilter = ({remeras}) => {
+const ItemListFilter = ({ remeras }) => {
+
+  useEffect(()=>{
+    console.log(remeras);
+  },[])
   return (
-   <ItemCard data={remeras}/>
-  )
-}
+    <div className="">
+      {remeras.map((remera) => ( 
+        <ItemCard data={remera} />
+      ))}
+    </div>
+  );
+};
 
-export default ItemListFilter
+export default ItemListFilter;
