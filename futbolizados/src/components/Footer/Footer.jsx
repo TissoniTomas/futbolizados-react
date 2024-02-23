@@ -17,7 +17,7 @@ const Footer1 = () => {
     <Footer >
       <div className={`${
           mode === "light" ? "bg-white" : "bg-gray-900"
-        }`}>
+        } w-screen`}>
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1 px-10 py-10">
           <div>
             <Footer.Brand href="/" src={logo} alt="Flowbite Logo" name="Futbolizados" />

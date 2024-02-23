@@ -11,6 +11,7 @@ import { ModeContext } from "../../context/ModeContext";
 const HomePage = () => {
   const { mode } = useContext(ModeContext);
   const [data, setData] = useState([]);
+  
   const q = query(
     collection(db, "remerasCollection"),
     where("oferta", "==", true)
@@ -26,15 +27,19 @@ const HomePage = () => {
       setData(dataFS);
     };
     getData();
+
+
   }, []);
 
   return (
     <>
       <Carrousel />
       <main className="flex flex-col items-center  ">
-        <div className={`h-screen w-full ${
-          mode === "light" ? "bg-white" : "bg-gray-900"
-        }`}>
+        <div
+          className={`h-screen w-full ${
+            mode === "light" ? "bg-white" : "bg-gray-900"
+          }`}
+        >
           <h1
             className={`text-center text-2xl font-MontserratBold pt-10 ${
               mode === "light" ? "text-gray-900" : "text-gray-200"
@@ -46,12 +51,14 @@ const HomePage = () => {
           <HomeDescription />
           <CarrouselEquipos />
         </div>
-        <div className={` mt-56 ${
-          mode === "light" ? "bg-white" : "bg-gray-900"
-        }`}>
-          <h2    className={`text-center text-2xl font-MontserratBold pt-10 ${
+        <div
+          className={` mt-56 ${mode === "light" ? "bg-white" : "bg-gray-900"}`}
+        >
+          <h2
+            className={`text-center text-2xl font-MontserratBold pt-10 ${
               mode === "light" ? "text-gray-900" : "text-gray-200"
-            }`}>
+            }`}
+          >
             Productos destacados
           </h2>
           <ItemListFilter remeras={data} />

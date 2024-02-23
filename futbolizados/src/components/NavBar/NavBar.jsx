@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import logo from "../../assets/Logo/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { ModeContext } from "../../context/ModeContext";
 import SeachBar from "../SearchBar/SeachBar";
 import { InputContext } from "../../context/InputContext";
@@ -11,7 +11,8 @@ const NavBar = () => {
   const [categorias, setCategorias] = useState(false);
   const {input} =useContext(InputContext)
  
-    
+
+
 
   const toggleTheme = () => {
     mode === "light" ? setDarkMode() : setLightMode();
@@ -136,41 +137,54 @@ const NavBar = () => {
                   mode === "light" ? "bg-white" : "bg-gray-900"
                 } `}
               >
+                <Link to="/category/boca">
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
                     mode === "light" ? "text-gray-900" : "text-gray-200"
                   }`}
-                >
+                 
+                  >
                   Boca
                 </li>
+                  </Link>
+                  <Link to="/category/river">
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
                     mode === "light" ? "text-gray-900" : "text-gray-200"
                   }`}
-                >
+                  >
                   River
                 </li>
+                  </Link>
+
+                  <Link to="/category/velez">
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
                     mode === "light" ? "text-gray-900" : "text-gray-200"
                   }`}
-                >
+                  >
                   Velez
                 </li>
+                  </Link>
+                  <Link to="/category/san lorenzo">
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
                     mode === "light" ? "text-gray-900" : "text-gray-200"
                   }`}
-                >
+                  >
                   San Lorenzo
                 </li>
+                  </Link>
+                  <Link to="/category/independiente">
+
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
                     mode === "light" ? "text-gray-900" : "text-gray-200"
                   }`}
-                >
+                  >
                   Independiente
                 </li>
+                  </Link>
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer text-red-800`}
                   onClick={toggleCategories}
