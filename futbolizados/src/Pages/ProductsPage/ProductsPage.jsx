@@ -67,11 +67,18 @@ const ProductsPage = () => {
         console.log(talleFiltro);
       }
 
-      if (clubFiltro) {
-        filtrado = filtrado.filter((remera) => remera.name.includes(clubFiltro));
+      if (clubFiltro && filtrado) {
+        let newFiltrado = filtrado.filter((remera) => remera.name.includes(clubFiltro));
+        if(newFiltrado.length > 0){
+          setDataFiltrada(newFiltrado);
+
+        }else{
+          setDataFiltrada([])
+        }
+      }if(!clubFiltro && filtrado){
+        setDataFiltrada(filtrado)
       }
 
-      setDataFiltrada(filtrado);
     };
 
     const totalRemerasPorTalle = () => {
@@ -85,7 +92,7 @@ const ProductsPage = () => {
         totalesPorTalle[talle] = totalPorTalle;
       });
       setRemerasTalle(totalesPorTalle);
-      console.log(totalesPorTalle);
+      
     };
 
     filtrador();
@@ -242,9 +249,10 @@ const ProductsPage = () => {
         </button>
       </div>
       <div className={`w-full`}>
-        <ItemListFilter
-          remeras={dataFiltrada.length > 0 ? dataFiltrada : data}
-        />
+      {dataFiltrada.length > 0 ?  <ItemListFilter
+          remeras={ dataFiltrada }
+        /> : <h2 className="text-4xl text-center">El filtrado no arrojo resultados, intente nuevamente</h2> }
+       
       </div>
     </>
   );
