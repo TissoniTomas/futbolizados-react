@@ -5,9 +5,13 @@ import ItemListFilter from "../../components/ItemListFilter/ItemListFilter";
 import { ModeContext } from "../../context/ModeContext";
 
 const ProductsPage = () => {
+  // Contextos
+  const { mode } = useContext(ModeContext);
+  // Estados
   const [data, setData] = useState([]);
   const [filtrador, setFiltrador] = useState(false);
-  const { mode } = useContext(ModeContext);
+  const [ordenador, setOrdenador] = useState(false);
+  const [opcionOrden, setOpcionOrden] = useState("");
   const [talleFiltro, setTalleFiltro] = useState("");
   const [clubFiltro, setClubFiltro] = useState("");
   const [dataFiltrada, setDataFiltrada] = useState([]);
@@ -20,7 +24,6 @@ const ProductsPage = () => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ ...doc.data(), id: doc.id });
-        console.log(doc.id, " => ", doc.data());
       });
       setData(data);
     };
@@ -29,6 +32,10 @@ const ProductsPage = () => {
 
   const setFiltro = () => {
     setFiltrador(!filtrador);
+  };
+
+  const setOrdenar = () => {
+    setOrdenador(!ordenador);
   };
 
   const selectTalle = (talle) => {
@@ -43,7 +50,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const filtrador = () => {
       let filtrado = data;
-
+  
       if (talleFiltro) {
         switch (talleFiltro) {
           case "S":
@@ -64,21 +71,15 @@ const ProductsPage = () => {
           default:
             break;
         }
-        console.log(talleFiltro);
       }
-
-      if (clubFiltro && filtrado) {
-        let newFiltrado = filtrado.filter((remera) => remera.name.includes(clubFiltro));
-        if(newFiltrado.length > 0){
-          setDataFiltrada(newFiltrado);
-
-        }else{
-          setDataFiltrada([])
-        }
-      }if(!clubFiltro && filtrado){
-        setDataFiltrada(filtrado)
+  
+      if (clubFiltro && filtrado.length > 0) {
+        filtrado = filtrado.filter((remera) =>
+          remera.name.includes(clubFiltro)
+        );
       }
-
+  
+      return filtrado; // Devolver los datos filtrados o un array vacío
     };
 
     const totalRemerasPorTalle = () => {
@@ -92,23 +93,52 @@ const ProductsPage = () => {
         totalesPorTalle[talle] = totalPorTalle;
       });
       setRemerasTalle(totalesPorTalle);
-      
     };
 
-    filtrador();
-    totalRemerasPorTalle();
-  }, [talleFiltro, data, clubFiltro]);
+   
+  
+    const remerasOrdenadas = filtrador(); // Filtrar los datos
+  
+    let ordenado = [...remerasOrdenadas]; // Copiar los datos filtrados para no mutar el estado directamente
+  
+    switch (opcionOrden) {
+      case "Menor a Mayor Precio":
+        ordenado.sort((item1, item2) =>
+          item1.price - item2.price
+        );
+        break;
+      case "Mayor a Menor Precio":
+        ordenado.sort((item1, item2) =>
+          item2.price - item1.price
+        );
+        break;
+      case "Alfabetico A-Z":
+        ordenado.sort((item1, item2) =>
+          item1.name.localeCompare(item2.name)
+        );
+        break;
+      case "Alfabetico Z-A":
+        ordenado.sort((item1, item2) =>
+          item2.name.localeCompare(item1.name)
+        );
+        break;
+      default:
+        break;
+    }
+  
+    setDataFiltrada(ordenado); // Actualizar los datos filtrados y ordenados
+    totalRemerasPorTalle()
+  }, [talleFiltro, data, clubFiltro, opcionOrden]);
+  
 
-  useEffect(() => {
-    console.log(dataFiltrada);
-  }, [dataFiltrada]);
-
-  const clubesUnicos = new Set(data.map((item)=>item.club));
-
-  console.log(clubesUnicos);
-
-  const arrayClubes = Array.from(clubesUnicos)
-
+  const clubesUnicos = new Set(data.map((item) => item.club));
+  const arrayClubes = Array.from(clubesUnicos);
+  const ordenarPor = [
+    "Menor a Mayor Precio",
+    "Mayor a Menor Precio",
+    "Alfabetico A-Z",
+    "Alfabetico Z-A",
+  ];
   
 
   return (
@@ -204,32 +234,29 @@ const ProductsPage = () => {
                 Club
               </h3>
               <div className="grid grid-cols-2 gap-y-10 justify-items-center ">
-                
-
-                
-            {
-
-              arrayClubes.map((club, index) => (
-                <div  key={index}>
+                {arrayClubes.map((club, index) => (
+                  <div key={index}>
                     <li
                       className={`mr-10 text-white cursor-pointer ${
                         clubFiltro === club
-                        ? "border border-red-500 rounded-lg"
-                        : null
+                          ? "border border-red-500 rounded-lg"
+                          : null
                       }`}
-                      onClick={clubFiltro !== club ? () => setClubFiltro(club) : ()=> setClubFiltro("")}
-                      >
+                      onClick={
+                        clubFiltro !== club
+                          ? () => setClubFiltro(club)
+                          : () => setClubFiltro("")
+                      }
+                    >
                       {club}
                     </li>
                   </div>
-              ))
-            }
-            
+                ))}
               </div>
             </ul>
             <div className="flex justify-around">
               <button
-                onClick={() => setFiltrador(false)}
+                onClick={setFiltro}
                 className="text-red-600"
               >
                 Aplicar Filtros
@@ -244,15 +271,39 @@ const ProductsPage = () => {
         <button
           className={`w-40 h-16 rounded-lg my-10 text-white bg-blue-800 font-MontserratRegular font-bold text-2xl`}
           type="button"
+          onClick={setOrdenar}
         >
           Ordenar
         </button>
+
+        {ordenador && (
+          <div
+            className={` w-screen h-screen top-0 absolute ${
+              mode === "light" ? "bg-white" : "bg-gray-900"
+            } animate-fade-right animate-ease-in animate-duration-500 `}
+          >
+            <ul className="mt-10">
+
+            {ordenarPor.map((item) => (
+              <li onClick={() => setOpcionOrden(item)} className={`text-white ${opcionOrden === item && "border border-red-500 rounded-lg"}  mb-10`}>
+                {item}
+              </li>
+            ))}
+            </ul>
+
+          <button className="text-orange-400 mt-10 ml-36" onClick={setOrdenar}>Aplicar Orden</button>
+          <button className="text-orange-400 mt-10 ml-36" onClick={()=> setOpcionOrden("")}>Reestablecer Orden</button>
+          </div>
+        )}
       </div>
       <div className={`w-full`}>
-      {dataFiltrada.length > 0 ?  <ItemListFilter
-          remeras={ dataFiltrada }
-        /> : <h2 className="text-4xl text-center">El filtrado no arrojo resultados, intente nuevamente</h2> }
-       
+        {dataFiltrada.length > 0 ? (
+          <ItemListFilter remeras={dataFiltrada} />
+        ) : (
+          <h2 className="text-4xl text-center">
+            El filtrado no arrojo resultados, intente nuevamente
+          </h2>
+        )}
       </div>
     </>
   );
