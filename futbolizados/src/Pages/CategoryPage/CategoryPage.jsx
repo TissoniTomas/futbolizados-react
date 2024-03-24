@@ -12,6 +12,13 @@ const CategoryPage = () => {
   const [data, setData] = useState([]);
   const [filtradoParams, setFiltradoParams] = useState([]);
   const [spinner, setSpinner] = useState(true);
+  useEffect(()=>{
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
+
+    scrollToTop();
+  },[])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,14 +29,11 @@ const CategoryPage = () => {
         dataFS.push({ ...doc.data(), id: doc.id });
       });
       setData(dataFS);
-    };
 
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
+      
     };
 
     fetchData();
-    scrollToTop();
 
     const filtrarPorClub = () => {
       const filtrado = data.filter((item) =>
