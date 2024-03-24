@@ -63,7 +63,13 @@ const HomePage = () => {
           </h2>
           <ItemListFilter remeras={data} />
         </div>
+        <div className={`w-screen ${mode === "light" ? "bg-white" : "bg-gray-900"}`}>
+
+        <h2 className={`text-xl text-center mt-6 ${
+          mode === "light" ? "text-gray-900" : "text-gray-200"
+        }`}> Recibi las ultimas novedades de futbolizados</h2>
         <EmailNews />
+        </div>
       </main>
     </>
   );

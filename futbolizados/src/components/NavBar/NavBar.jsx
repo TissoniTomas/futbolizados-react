@@ -194,14 +194,16 @@ const NavBar = () => {
               </ul>
             )}
           </li>
+          <Link to="/contact">
           <li
             className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
               mode === "light" ? "text-gray-900" : "text-gray-200"
             }`}
             onClick={toggleMenu}
-          >
+            >
             Contact
           </li>
+            </Link>
           <li
             className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
               mode === "light" ? "text-gray-900" : "text-gray-200"

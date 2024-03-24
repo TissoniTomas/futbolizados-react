@@ -3,9 +3,7 @@ import ItemCard from "../ItemCard/ItemCard";
 
 const ItemListFilter = ({ remeras }) => {
 
-  useEffect(()=>{
-    console.log(remeras);
-  },[])
+
   return (
     <div className="">
       {remeras.map((remera) => ( 

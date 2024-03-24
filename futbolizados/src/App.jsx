@@ -9,6 +9,7 @@ import ProductsPage from "./Pages/ProductsPage/ProductsPage";
 import FilterPage from "./Pages/FilterPage/FilterPage";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
+import ContactPage from "./Pages/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/search/:filtro" element={<FilterPage />} />
               <Route path="/product/:id" element={<DetailPage />} />
-              <Route path= "/category/:club" element={<CategoryPage/>}/>
-
+              <Route path="/category/:club" element={<CategoryPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
 
             <Footer1 />

@@ -12,10 +12,8 @@ const EmailNews =()=> {
       mode === "light" ? "bg-white" : "bg-gray-900"
     }`}>
       <div className='w-64 '>
-        <div className="mb-2  block text-center">
-          <Label className={`text-xl ${
-              mode === "light" ? "text-gray-900" : "text-gray-200"
-            }`} htmlFor="email1" value="Recibi las ultimas novedades de futbolizados" />
+        <div className="mb-2 block text-center">
+          <Label value='Email' />
         </div>
         <div className={`${
       mode === "light" ? "bg-white" : "bg-gray-900"

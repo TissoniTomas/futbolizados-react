@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ModeContext } from "../../context/ModeContext";
 import { useParams } from "react-router-dom";
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import ItemListFilter from "../../components/ItemListFilter/ItemListFilter";
 import SpinnerLoading from "../../components/Spinner/Spinner";
 
@@ -12,7 +12,6 @@ const CategoryPage = () => {
   const [data, setData] = useState([]);
   const [filtradoParams, setFiltradoParams] = useState([]);
   const [spinner, setSpinner] = useState(true);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,30 +25,28 @@ const CategoryPage = () => {
     };
 
     const scrollToTop = () => {
-      window.scrollTo(0, 0); // Scroll al principio de la página
+      window.scrollTo(0, 0);
     };
-    setTimeout(() => {
-      setSpinner(false);
-    }, 3000);
 
     fetchData();
     scrollToTop();
-  }, []);
 
-  // Filtrar datos cuando cambia el parámetro de la URL
-  useEffect(() => {
     const filtrarPorClub = () => {
       const filtrado = data.filter((item) =>
         item.club.toLowerCase().includes(club.toLowerCase())
       );
       setFiltradoParams(filtrado);
     };
+
+    setTimeout(() => {
+      setSpinner(false);
+    }, 3000);
     filtrarPorClub();
   }, [data, club]);
 
   return (
     <>
-      {spinner  ? (
+      {spinner ? (
         <div>
           <SpinnerLoading />
         </div>

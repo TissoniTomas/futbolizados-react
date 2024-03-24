@@ -12,7 +12,7 @@ const ItemCard = ({data}) => {
     <span className="text-3xl font-YakartaBold text-sky-500 mt-4 text-center">${data.price}</span>
     <Link to={`/product/${data.id}`}>
 
-    <button type="button" className="border rounded-full bg-sky-500 text-white font-semibold h-10 my-10  font-MontserratBold text-lg px-4 ">See More</button>
+    <button type="button" className="border rounded-full bg-sky-500 text-white font-semibold h-10 my-6 font-MontserratBold text-lg px-4 ">See More</button>
     </Link>
    </div>
   );
