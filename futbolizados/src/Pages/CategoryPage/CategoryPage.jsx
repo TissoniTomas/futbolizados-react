@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
 import ItemListFilter from "../../components/ItemListFilter/ItemListFilter";
-import SpinnerLoading from "../../components/Spinner/Spinner";
+import SpinnerLoading from "../../components/SpinnerLoading/SpinnerLoading"
 
 const CategoryPage = () => {
   const { mode } = useContext(ModeContext);

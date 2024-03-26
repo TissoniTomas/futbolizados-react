@@ -7,7 +7,10 @@ const ItemListFilter = ({ remeras }) => {
   return (
     <div className="">
       {remeras.map((remera) => ( 
+        <div key={remera.id}>
+
         <ItemCard data={remera} />
+        </div>
       ))}
     </div>
   );

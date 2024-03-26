@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer1 from "./components/Footer/Footer";
 import { ModeProvider } from "./context/ModeContext";
 import { InputProvider } from "./context/InputContext";
+import { ButtonProvider } from "./context/ButtonContext";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import ProductsPage from "./Pages/ProductsPage/ProductsPage";
@@ -14,24 +16,28 @@ import ContactPage from "./Pages/ContactPage/ContactPage";
 function App() {
   return (
     <>
-      <ModeProvider>
-        <InputProvider>
-          <Router>
-            <NavBar />
+      <ShoppingCartProvider>
+        <ModeProvider>
+          <InputProvider>
+            <ButtonProvider>
+              <Router>
+                <NavBar />
 
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/search/:filtro" element={<FilterPage />} />
-              <Route path="/product/:id" element={<DetailPage />} />
-              <Route path="/category/:club" element={<CategoryPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Routes>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/products" element={<ProductsPage />} />
+                  <Route path="/search/:filtro" element={<FilterPage />} />
+                  <Route path="/product/:id" element={<DetailPage />} />
+                  <Route path="/category/:club" element={<CategoryPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                </Routes>
 
-            <Footer1 />
-          </Router>
-        </InputProvider>
-      </ModeProvider>
+                <Footer1 />
+              </Router>
+            </ButtonProvider>
+          </InputProvider>
+        </ModeProvider>
+      </ShoppingCartProvider>
     </>
   );
 }

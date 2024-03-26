@@ -4,6 +4,8 @@ import { Link} from "react-router-dom";
 import { ModeContext } from "../../context/ModeContext";
 import SeachBar from "../SearchBar/SeachBar";
 import { InputContext } from "../../context/InputContext";
+import { TbMenuDeep } from "react-icons/tb";
+import { RxCross2 } from "react-icons/rx";
 
 const NavBar = () => {
   const { mode, setMode } = useContext(ModeContext);
@@ -39,12 +41,6 @@ const NavBar = () => {
 
 
 
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
-
-
-
   return (
     <>
       <div
@@ -63,36 +59,13 @@ const NavBar = () => {
           </Link>
           <button onClick={toggleMenu}>
             {menu === true ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18 18 6M6 6l12 12"
-                />
-              </svg>
+             <RxCross2 className="animate-fade-right animate-duration-[2000ms] animate-delay-0 animate-ease-out"
+             size={44}
+             color={`${mode === "light" ? "black" : "white"}`}/>
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-10 h-10"
-                onClick={() => setCategorias(false)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
+              <TbMenuDeep 
+              size={44}
+              color={`${mode === "light" ? "black" : "white"}`}/>
             )}
           </button>
         </div>
