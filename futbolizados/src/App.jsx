@@ -5,6 +5,7 @@ import { ModeProvider } from "./context/ModeContext";
 import { InputProvider } from "./context/InputContext";
 import { ButtonProvider } from "./context/ButtonContext";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import ProductsPage from "./Pages/ProductsPage/ProductsPage";
@@ -12,10 +13,14 @@ import FilterPage from "./Pages/FilterPage/FilterPage";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import SignInPage from "./Pages/SignInPage/SignInPage";
 
 function App() {
   return (
     <>
+    <AuthContextProvider>
+
       <ShoppingCartProvider>
         <ModeProvider>
           <InputProvider>
@@ -30,6 +35,8 @@ function App() {
                   <Route path="/product/:id" element={<DetailPage />} />
                   <Route path="/category/:club" element={<CategoryPage />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/user" element={<LoginPage/>}/>
+                  <Route path="/signin" element={<SignInPage/>}/>
                 </Routes>
 
                 <Footer1 />
@@ -38,6 +45,7 @@ function App() {
           </InputProvider>
         </ModeProvider>
       </ShoppingCartProvider>
+    </AuthContextProvider>
     </>
   );
 }

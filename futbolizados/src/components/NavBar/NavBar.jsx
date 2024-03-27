@@ -1,20 +1,18 @@
 import { useState, useEffect, useContext } from "react";
 import logo from "../../assets/Logo/logo.png";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ModeContext } from "../../context/ModeContext";
 import SeachBar from "../SearchBar/SeachBar";
 import { InputContext } from "../../context/InputContext";
 import { TbMenuDeep } from "react-icons/tb";
 import { RxCross2 } from "react-icons/rx";
+import { MdLogin } from "react-icons/md";
 
 const NavBar = () => {
   const { mode, setMode } = useContext(ModeContext);
   const [menu, setMenu] = useState(false);
   const [categorias, setCategorias] = useState(false);
-  const {input} =useContext(InputContext)
- 
-
-
+  const { input } = useContext(InputContext);
 
   const toggleTheme = () => {
     mode === "light" ? setDarkMode() : setLightMode();
@@ -32,14 +30,11 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setMenu(!menu);
-  
   };
-  
-    const toggleCategories = () => {
-      setCategorias(!categorias);
-    };
 
-
+  const toggleCategories = () => {
+    setCategorias(!categorias);
+  };
 
   return (
     <>
@@ -59,13 +54,16 @@ const NavBar = () => {
           </Link>
           <button onClick={toggleMenu}>
             {menu === true ? (
-             <RxCross2 className="animate-fade-right animate-duration-[2000ms] animate-delay-0 animate-ease-out"
-             size={44}
-             color={`${mode === "light" ? "black" : "white"}`}/>
+              <RxCross2
+                className="animate-fade-right animate-duration-[2000ms] animate-delay-0 animate-ease-out"
+                size={44}
+                color={`${mode === "light" ? "black" : "white"}`}
+              />
             ) : (
-              <TbMenuDeep 
-              size={44}
-              color={`${mode === "light" ? "black" : "white"}`}/>
+              <TbMenuDeep
+                size={44}
+                color={`${mode === "light" ? "black" : "white"}`}
+              />
             )}
           </button>
         </div>
@@ -111,53 +109,51 @@ const NavBar = () => {
                 } `}
               >
                 <Link to="/category/boca">
-                <li
-                  className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
-                    mode === "light" ? "text-gray-900" : "text-gray-200"
-                  }`}
-                 
+                  <li
+                    className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
+                      mode === "light" ? "text-gray-900" : "text-gray-200"
+                    }`}
                   >
-                  Boca
-                </li>
-                  </Link>
-                  <Link to="/category/river">
-                <li
-                  className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
-                    mode === "light" ? "text-gray-900" : "text-gray-200"
-                  }`}
+                    Boca
+                  </li>
+                </Link>
+                <Link to="/category/river">
+                  <li
+                    className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
+                      mode === "light" ? "text-gray-900" : "text-gray-200"
+                    }`}
                   >
-                  River
-                </li>
-                  </Link>
+                    River
+                  </li>
+                </Link>
 
-                  <Link to="/category/velez">
-                <li
-                  className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
-                    mode === "light" ? "text-gray-900" : "text-gray-200"
-                  }`}
+                <Link to="/category/velez">
+                  <li
+                    className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
+                      mode === "light" ? "text-gray-900" : "text-gray-200"
+                    }`}
                   >
-                  Velez
-                </li>
-                  </Link>
-                  <Link to="/category/san lorenzo">
-                <li
-                  className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
-                    mode === "light" ? "text-gray-900" : "text-gray-200"
-                  }`}
+                    Velez
+                  </li>
+                </Link>
+                <Link to="/category/san lorenzo">
+                  <li
+                    className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
+                      mode === "light" ? "text-gray-900" : "text-gray-200"
+                    }`}
                   >
-                  San Lorenzo
-                </li>
-                  </Link>
-                  <Link to="/category/independiente">
-
-                <li
-                  className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
-                    mode === "light" ? "text-gray-900" : "text-gray-200"
-                  }`}
+                    San Lorenzo
+                  </li>
+                </Link>
+                <Link to="/category/independiente">
+                  <li
+                    className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
+                      mode === "light" ? "text-gray-900" : "text-gray-200"
+                    }`}
                   >
-                  Independiente
-                </li>
-                  </Link>
+                    Independiente
+                  </li>
+                </Link>
                 <li
                   className={`font-MontserratBold text-3xl p-2 cursor-pointer text-red-800`}
                   onClick={toggleCategories}
@@ -168,15 +164,15 @@ const NavBar = () => {
             )}
           </li>
           <Link to="/contact">
-          <li
-            className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
-              mode === "light" ? "text-gray-900" : "text-gray-200"
-            }`}
-            onClick={toggleMenu}
+            <li
+              className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
+                mode === "light" ? "text-gray-900" : "text-gray-200"
+              }`}
+              onClick={toggleMenu}
             >
-            Contact
-          </li>
-            </Link>
+              Contact
+            </li>
+          </Link>
           <li
             className={`font-MontserratBold text-3xl p-2 cursor-pointer ${
               mode === "light" ? "text-gray-900" : "text-gray-200"
@@ -237,12 +233,20 @@ const NavBar = () => {
               )}
             </button>
           </li>
+          <li>
+            <Link to="/user">
+              <button>
+                <MdLogin
+                  size={40}
+                  color={mode === "light" ? "black" : "white"}
+                />
+              </button>
+            </Link>
+          </li>
         </ul>
       </div>
 
-      <SeachBar/>
-
-     
+      <SeachBar />
     </>
   );
 };
